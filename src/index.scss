@@ -17,5 +17,14 @@ html{
 
 body{
   background-color: orangered;
+  font-size: 1rem;
+  border: 5px solid red;
+}
+
+.front{
+  margin: 5rem auto;
+  max-width: 90rem;
+  min-height: 85vh;
+  background-color: aliceblue;
 }
 
