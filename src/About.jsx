@@ -1,5 +1,6 @@
 import React from "react";
 import picURL from './assets/image_54_2x.png'
+import { Link } from 'react-router-dom'
 export default function About ( ){
     return(
         <div className="about">
@@ -23,7 +24,7 @@ export default function About ( ){
                         <h2 >Your destination is waiting.</h2>
                     </div>
 
-                    <a href="#" className="about__desc--btn">Explore our vans</a>
+                    <Link to='/vans' className="about__desc--btn">Explore our vans</Link>
                 </div>
              </div>
         </div>

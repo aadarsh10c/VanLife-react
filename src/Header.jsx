@@ -6,11 +6,11 @@ export default function Header () {
         <header>
             <nav className="header">
                 <div className="header__main">
-                    <h1>#VANLIFE</h1>
+                    <Link className='Link' to='/' >#VANLIFE</Link>
                 </div>
                 <div className="header__sub">
-                    <h3>About</h3>
-                    <h3>Vans</h3>
+                    <Link className='Link' to='/about'>About</Link>
+                    <Link className='Link' to='/vans'>Vans</Link>
                 </div>
             </nav>
         </header>

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Front from './Front'
-import { BrowserRouter, Routes, Route , Link} from 'react-router-dom'
+import { BrowserRouter} from 'react-router-dom'
 
 // return(
   //   <BrowserRouter>
@@ -16,22 +16,15 @@ import { BrowserRouter, Routes, Route , Link} from 'react-router-dom'
 function App() {
   
   return (
-    <div className="App">
-      <Front />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Front />
+      </div>
+    </BrowserRouter>
+    
   )
 }
 
-function Home(){
-  return(
-    <h1>Hello, React Router!</h1>
-  )
-}
 
-function About(){
-  return(
-    <h1>About Page</h1>
-  )
-}
 
 export default App
