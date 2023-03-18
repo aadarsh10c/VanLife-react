@@ -222,6 +222,15 @@ body{
   }
   &__tile{
     width:23.5%;
+    &>a{
+      &,
+      &:link,
+      &:visited{
+        text-decoration: none;
+        color: black;
+        font-family: 'Inter' , sans-serif;
+      }
+    }
     &--img{
       width:100%;
       border-radius: 3px;
@@ -249,6 +258,46 @@ body{
       box-shadow: 0 2px 1px rgba($color: #000000, $alpha: .5);
     }
   }
+
+ 
   
   
+}
+
+.van{
+  &__container{
+    background: #FFF7ED;
+  }
+  &__link{
+    margin: 0 1.5rem 1.5rem;
+    &>a{
+      font-size: 1.5rem;
+    }
+  }
+  &__info{
+    padding: 1.5rem;
+    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    &>button{
+      width:10%;
+      background: #E17654;
+      color: white;
+    }
+  }
+  &__desc{
+    font-size: 1.5rem;
+  }
+  &__rent{
+    text-decoration: none;
+    padding: 1rem;
+    background-color: #FF8C38;
+    text-align: center;
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+    border-radius: 5px;
+    font-family: 'Inter' , sans-serif;
+    font-weight: 700;
+  }
 }

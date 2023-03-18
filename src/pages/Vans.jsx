@@ -1,4 +1,5 @@
 import React, { useEffect , useState } from "react";
+import { Link } from "react-router-dom";
 
 
 export default function Vans ( ){
@@ -31,17 +32,21 @@ export default function Vans ( ){
 
 
     const tileList = vans.map( item => (
-        <div key={item.id} className="vans__tile">
-                <img src={item.imageUrl}  className="vans__tile--img" />                      
-                <div className="vans__tile__info">
-                    <h2>{item.name}</h2>
-                    <div className="vans__tile__info--price">
-                        <h2>${item.price}</h2>
-                        <p>/day</p>
+        
+            <div key={item.id} className="vans__tile">
+                <Link to={`/vans/${item.id}`}>
+                    <img src={item.imageUrl}  className="vans__tile--img" />                      
+                    <div className="vans__tile__info">
+                        <h2>{item.name}</h2>
+                        <div className="vans__tile__info--price">
+                            <h2>${item.price}</h2>
+                            <p>/day</p>
+                        </div>
                     </div>
-                </div>
-                <a href="#" className="vans__tile__btn">{item.type}</a>
-        </div>
+                    <a href="#" className="vans__tile__btn">{item.type}</a>
+                </Link>
+            </div>
+        
     ))  
 
     return(
