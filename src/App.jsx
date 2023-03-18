@@ -1,6 +1,6 @@
-import { useState } from 'react'
 import Front from './pages/Front'
 import { BrowserRouter} from 'react-router-dom'
+import '../server.js'
 
 // return(
   //   <BrowserRouter>
