@@ -1,5 +1,5 @@
 import React from "react";
-import picURL from '../assets/image_54_2x.png'
+import picURL from '../../assets/image_54_2x.png'
 import { Link } from 'react-router-dom'
 export default function About ( ){
     return(

@@ -28,13 +28,18 @@ body{
 }
 .Link{
   &,
-  &:link,
-  &:visited{
+  &:link{
     text-decoration: none;
   }
-  &:hover{
+  &:visited{
     text-decoration: underline;
   }
+  &:hover{
+    color: black;
+    font-weight: 900;
+    border-bottom: 3px solid black;
+  }
+  
 }
 .header{
   padding: 3rem;
