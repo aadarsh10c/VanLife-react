@@ -36,7 +36,7 @@ export  default function HostVanCardDetailLayput(){
                             <NavLink className="Link" style={ ({ isActive }) => setStyle( isActive ) } to={`price`}>Pricing</NavLink>
                             <NavLink className="Link" style={ ({ isActive }) => setStyle( isActive ) } to={`image`}>Photos</NavLink>
                         </div>
-                        <Outlet />
+                        <Outlet context={{ van }} />
                         
                     </div>
                     ) : <h1>Loading...</h1>}
