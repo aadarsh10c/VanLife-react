@@ -14,10 +14,10 @@ export default function HostHeader () {
         <header>
             <nav className="header">
                 <div className="header__sub">
-                    <NavLink className="Link" style={({isActive}) => setActive( isActive )} to='/host' end >Dashboard</NavLink>
-                    <NavLink className='Link' style={({isActive}) => setActive( isActive )} to='/host/income'>Income</NavLink>
-                    <NavLink className='Link' style={({isActive}) => setActive( isActive )} to='/host/vans'>Vans</NavLink>
-                    <NavLink className='Link' style={({isActive}) => setActive( isActive )} to='/host/reviews'>Reviews</NavLink>
+                    <NavLink className="Link" style={({isActive}) => setActive( isActive )} to='.' end >Dashboard</NavLink>
+                    <NavLink className='Link' style={({isActive}) => setActive( isActive )} to='income'>Income</NavLink>
+                    <NavLink className='Link' style={({isActive}) => setActive( isActive )} to='vans'>Vans</NavLink>
+                    <NavLink className='Link' style={({isActive}) => setActive( isActive )} to='reviews'>Reviews</NavLink>
                 </div>
             </nav>
         </header>

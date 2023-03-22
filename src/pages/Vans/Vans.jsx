@@ -34,7 +34,7 @@ export default function Vans ( ){
     const tileList = vans.map( item => (
         
             <div key={item.id} className="vans__tile">
-                <Link to={`/vans/${item.id}`}>
+                <Link to={`${item.id}`}>
                     <img src={item.imageUrl}  className="vans__tile--img" />                      
                     <div className="vans__tile__info">
                         <h2>{item.name}</h2>
