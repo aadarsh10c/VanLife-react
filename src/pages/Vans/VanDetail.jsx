@@ -1,19 +1,21 @@
 import React from "react";
 import { Link, useParams } from 'react-router-dom'
+import useFetchData from "../../hooks/useFetchData";
 
 export default function VanDetail(){
     const { id } = useParams()
-    const [ van , setVan ] = React.useState( null )
 
-    React.useEffect( () => {
-        fetch(`/api/vans/${id}`)
-        .then( res => res.json() )
-        .then( data => setVan( data.vans ))
-    } ,[ id ])
+    const van = useFetchData('/api/vans',id)
+    console.log( van )
+    // React.useEffect( () => {
+    //     fetch(`/api/vans/${id}`)
+    //     .then( res => res.json() )
+    //     .then( data => setVan( data.vans ))
+    // } ,[ id ])
 
     return(
         <div className="van__container">
-		    { van ? ( 
+		    {  van  ? ( 
                 <div className="van__detail">
                     <div className="van__link">
                         <Link to='/vans'>Back to all vans</Link>      

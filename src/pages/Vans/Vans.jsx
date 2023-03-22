@@ -1,16 +1,16 @@
 import React, { useEffect , useState } from "react";
 import { Link } from "react-router-dom";
+import useFetchData from "../../hooks/useFetchData";
 
 
 export default function Vans ( ){
 
-    const [ vans , setVans ] = useState( [] )
-
-    useEffect(()=>{
-        fetch('/api/vans')
-        .then( response => response.json())
-        .then( data => setVans( data.vans ) )
-    },[])
+    const vans = useFetchData( '/api/vans' )
+    // useEffect(()=>{
+    //     fetch('/api/vans')
+    //     .then( response => response.json())
+    //     .then( data => setVans( data.vans ) )
+    // },[])
 
     function addTypeLinks ( typeArray  ){
         let typeList = typeArray.map( (val, index) => {
