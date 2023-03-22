@@ -1,6 +1,20 @@
 import React from "react";
+import { Link } from 'react-router-dom'
+
 import starURL from '../../assets/Star_3.png'
+
+//context
+import { useHostVanData } from "../../provider/HostVanContext";
+
+import HostVanCard from "../../component/HostVanCard";
+
 export default function Dashboard(){
+    const hostVanData = useHostVanData()
+    const hostVanList = hostVanData.map( van => (
+            <Link to={`/host/vans/${van.id}`} key={van.id} className='vandetail-Link'>
+                <HostVanCard van={van} />
+            </Link>
+    ))
     return(
         <div className="dashboard">
             <div className="profile">
@@ -38,9 +52,8 @@ export default function Dashboard(){
                     <h3 className="head__1">Your listed vans</h3>
                     <p className="head__2">View all</p>
                 </div>
-                <div className="container">
-                    <h1>Van List</h1>
-                </div>
+                { hostVanData.length > 0 ? hostVanList
+                : <h3>Loading ...</h3>}
             </div>
         </div>
     )

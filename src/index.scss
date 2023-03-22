@@ -38,6 +38,15 @@ body{
   }
   
 }
+
+.vandetail-Link{
+  &,
+  &:link,
+  &:visited{
+    text-decoration: none;
+    color: black;
+  }
+}
 .header{
   padding: 3rem;
   display: flex;
@@ -361,23 +370,53 @@ body{
       font-size: 1.5rem;
     }
   }
-  .vanlist{
-    background-color: #FFF7ED;
-    .head{
-      padding: 2rem 3rem;
-      font-family: Inter , 'sans-serif';
+  
+}
+
+.vanlist{
+  background-color: #FFF7ED;
+  .head{
+    padding: 2rem 3rem;
+    font-family: Inter , 'sans-serif';
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &__1{
+      font-size: 2rem;
+    }
+    &__2{
+      font-size: 1.6rem;
+    }
+  }
+  .cards{
+    padding: 1rem 3rem;
+    .card{
+      padding: 2rem;
+      background-color: white;
+      border-radius: 5px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      &__1{
-        font-size: 2rem;
+      font-family: "inter", sans-serif;
+      &__display{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap:3rem;
+        &-img{
+          width: 10rem;
+          border-radius: 5px;
+        }
+        &-info{
+          font-size: 1.5rem;
+        }
       }
-      &__2{
-        font-size: 1.6rem;
+      &__edit{
+        font-size: 1.5rem;
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
       }
-    }
-    .container{
-      padding: 1rem 3rem;
     }
   }
 }
