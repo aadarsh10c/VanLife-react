@@ -211,37 +211,38 @@ body{
       box-shadow: 0 2px 2px rgba( black, .5);
       &:hover{
         background-color: #d4cdc4;
+        cursor: pointer;
       }
     }
     &--clear{
-      &,
-      &:link,
-      &:visited{
-        font-size: 1.6rem;
-        color: black;
-        text-decoration: none;
-        border-bottom: 1px solid black;
-      }
-      
+      background-color: #FFF7ED;
+      border: none;
+      font-size: 1.6rem;
+      color: black;
+      text-decoration: none;
+      border-bottom: 1px solid black;    
+      &:hover{
+        cursor: pointer;
+        background-color: #e7e6e4;;
+      }  
     }
   }
   &__tiles{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     gap: 3rem;
   }
   &__tile{
     width:23.5%;
     &>a{
-      &,
-      &:link,
-      &:visited{
-        text-decoration: none;
-        color: black;
-        font-family: 'Inter' , sans-serif;
-      }
+      text-decoration: none;
+      color: black;
+      font-family: 'Inter' , sans-serif;
+    }
+    &__btn{
+      border: none;
     }
     &--img{
       width:100%;

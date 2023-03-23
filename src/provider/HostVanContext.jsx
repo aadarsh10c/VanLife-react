@@ -11,7 +11,6 @@ function HostVanProvider( { children }){
 
 function useHostVanData(){
     const context = useContext( HostVanContext )
-    console.log( `context: ${context}` )
     if( context === undefined){
         throw new Error(' useHostVanData must be used within a HostVanProvider ')
     }
