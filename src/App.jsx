@@ -17,6 +17,7 @@ import HostVanDetail from './pages/Host/HostVanDetail'
 import HostVanImage from './pages/Host/HostVanImage'
 import HostVanPrice from './pages/Host/HostVanPrice'
 
+import PageNotFound from './pages/PageNotFound'
 
 import { BrowserRouter , Routes , Route} from 'react-router-dom'
 import '../server.js'
@@ -44,6 +45,7 @@ function App() {
                 </Route>
                 <Route path='reviews' element={ <Reviews />} />
               </Route>
+            <Route path='*' element={<PageNotFound />} />
           </Route>
         </Routes>
     </BrowserRouter>

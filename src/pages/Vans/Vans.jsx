@@ -6,6 +6,7 @@ import useFetchData from "../../hooks/useFetchData";
 export default function Vans ( ){
 
     const vans = useFetchData( '/api/vans' )
+
     const [ searchParams , setSearchParams ] = useSearchParams() 
     
     let typeFilter = searchParams.get('type')
@@ -47,7 +48,7 @@ export default function Vans ( ){
     const tileList = filteredVans.map( item => (
         
             <div key={item.id} className="vans__tile">
-                <Link to={`${item.id}`}>
+                <Link to={`${item.id}`}  state={ { linkQuery: searchParams.toString(), query: typeFilter }}>
                     <img src={item.imageUrl}  className="vans__tile--img" />                      
                     <div className="vans__tile__info">
                         <h2>{item.name}</h2>

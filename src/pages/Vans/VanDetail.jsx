@@ -1,24 +1,24 @@
 import React from "react";
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useLocation } from 'react-router-dom'
 import useFetchData from "../../hooks/useFetchData";
 
 export default function VanDetail(){
     const { id } = useParams()
 
     const van = useFetchData('/api/vans',id)
-    console.log( van )
-    // React.useEffect( () => {
-    //     fetch(`/api/vans/${id}`)
-    //     .then( res => res.json() )
-    //     .then( data => setVan( data.vans ))
-    // } ,[ id ])
+    
+    let location = useLocation()
+    console.log( location )
+    
+    let query = location.state?.linkQuery || ''
+    let backLink = location.state?.query || 'all'
 
     return(
         <div className="van__container">
 		    {  van  ? ( 
                 <div className="van__detail">
                     <div className="van__link">
-                        <Link relative='path' to='..'>← Back to all vans</Link>      
+                        <Link relative='path' to={`..${query}`}>← Back to {backLink} vans</Link>      
                     </div>
                     <div className="van__info">
                         <img src= {van.imageUrl} alt="" className="van__img" />
