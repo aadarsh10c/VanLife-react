@@ -1,29 +1,44 @@
 import { useState, useEffect } from "react";
 
 export default function useFetchData( url, id='' ){
-    const [ data , setData ] = useState( ()=> id !== ''? null : [] )       
+    const [ data , setData ] = useState( ()=> id !== ''? null : [] )  
+    const [ loading , setLoading ] = useState( false )  
+    const [ error , setError ] = useState( null )   
 
+    async function loadData( url ){
+
+        let res = await fetch(url)
+
+        if( !res.ok ){
+            throw{
+                message: "Failed to fetch vans", 
+                statusText: res.statusText,
+                status: res.status
+            }
+        }
+        let data = await res.json()
+        return data
+    }
 
     let dependency = id == '' ? url : id
 
     let newURL = id =='' ? url : `${url}/${id}`
 
     useEffect( () => {
-        if( url){
-            let ignore = false
-            fetch(newURL)
-            .then( res => res.json())
-            .then( data => {
-                if( !ignore){
-                    setData( data.vans )
-                }
-            })
-            return () => {
-                ignore = true
+        async function getVans(  ){
+            setLoading( true )
+            try {
+                let data = await loadData( newURL )
+                setData( data.vans ) 
+            } catch (error) {
+                setError( error )
             }
+            setLoading( false )               
         }
-    },[dependency])
-    return data 
+        getVans()
+    },[ dependency ] )
+
+    return {data, loading , error } 
 
 }
 

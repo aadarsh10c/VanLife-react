@@ -4,7 +4,7 @@ import useFetchData from "../hooks/useFetchData";
 const HostVanContext = createContext()
 
 function HostVanProvider( { children }){
-    const data = useFetchData('api/host/vans')
+    const {data} = useFetchData('api/host/vans')
     console.log( data )
     return <HostVanContext.Provider value={data}>{ children }</HostVanContext.Provider>
 }

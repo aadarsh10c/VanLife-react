@@ -1,11 +1,18 @@
 import React, { useEffect , useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import useFetchData from "../../hooks/useFetchData";
+import DataNotFound from "../DataNotFound";
 
 
 export default function Vans ( ){
 
-    const vans = useFetchData( '/api/vans' )
+    const {data : vans , loading , error }  = useFetchData( '/api/vans' )
+
+    if( error ){
+        return(
+            <DataNotFound error={ error } />
+        )
+    }
 
     const [ searchParams , setSearchParams ] = useSearchParams() 
     

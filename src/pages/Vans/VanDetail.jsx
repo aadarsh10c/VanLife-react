@@ -1,11 +1,20 @@
 import React from "react";
 import { Link, useParams, useLocation } from 'react-router-dom'
 import useFetchData from "../../hooks/useFetchData";
+import DataNotFound from "../DataNotFound";
 
 export default function VanDetail(){
     const { id } = useParams()
 
-    const van = useFetchData('/api/vans',id)
+    const {data : van , loading , error }  = useFetchData( '/api/vans',id )
+
+    console.log( van )
+    
+    if( error ){
+        return(
+            <DataNotFound error={ error } />
+        )
+    }
     
     let location = useLocation()
     console.log( location )
