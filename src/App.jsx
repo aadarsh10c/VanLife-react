@@ -19,16 +19,15 @@ import HostVanPrice from './pages/Host/HostVanPrice'
 
 import PageNotFound from './pages/PageNotFound'
 
-import { BrowserRouter , Routes , Route} from 'react-router-dom'
+import { BrowserRouter , Routes , Route,
+createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom'
 import '../server.js'
 
 
   
 function App() {
-  
-  return (
-    <BrowserRouter>
-       <Routes>
+
+  const router = createBrowserRouter( createRoutesFromElements(
           <Route path='/'element={<Front />} >
               <Route index element={<Home />} />
               <Route path='about' element={<About />} />
@@ -46,10 +45,11 @@ function App() {
                 <Route path='reviews' element={ <Reviews />} />
               </Route>
             <Route path='*' element={<PageNotFound />} />
-          </Route>
-        </Routes>
-    </BrowserRouter>
-    
+        </Route>
+  ) )
+  
+  return (
+    <RouterProvider router={router} />   
   )
 }
 

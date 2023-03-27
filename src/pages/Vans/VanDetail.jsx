@@ -27,7 +27,7 @@ export default function VanDetail(){
 		    {  van  ? ( 
                 <div className="van__detail">
                     <div className="van__link">
-                        <Link relative='path' to={`..${query}`}>← Back to {backLink} vans</Link>      
+                        <Link relative='path' to={`..?${query}`}>← Back to {backLink} vans</Link>      
                     </div>
                     <div className="van__info">
                         <img src= {van.imageUrl} alt="" className="van__img" />
