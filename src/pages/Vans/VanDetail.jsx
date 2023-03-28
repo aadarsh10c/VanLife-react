@@ -1,27 +1,22 @@
 import React from "react";
-import { Link, useParams, useLocation } from 'react-router-dom'
+import { Link, useParams, useLocation, useLoaderData } from 'react-router-dom'
 import getVansData from '../../hooks/getVansData'
+import useFetchData from "../../hooks/useFetchData";
 import DataNotFound from "../DataNotFound";
 
-export function loader(){
-    return getVansData()
+export function loader({ params }){
+    const { id } =  params 
+    return getVansData('/api/vans',id)
 }
 
 export default function VanDetail(){
     const { id } = useParams()
 
-    const {data : van , loading , error }  = useFetchData( '/api/vans',id )
+    const van = useLoaderData()
 
     console.log( van )
     
-    if( error ){
-        return(
-            <DataNotFound error={ error } />
-        )
-    }
-    
     let location = useLocation()
-    console.log( location )
     
     let query = location.state?.linkQuery || ''
     let backLink = location.state?.query || 'all'

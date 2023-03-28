@@ -6,7 +6,7 @@ import HostVanCardDetailLayput from './layout/HostVanCardDetailLayout'
 import About from './pages/Vans/About'
 import Vans , { loader as vanLoader } from './pages/Vans/Vans'
 import Home from './pages/Vans/Home'
-import VanDetail from './pages/Vans/VanDetail'
+import VanDetail , { loader as detailLoader }from './pages/Vans/VanDetail'
 
 import Dashboard from './pages/Host/Dashboard'
 import HostVans  from './pages/Host/HostVans' 
@@ -28,11 +28,11 @@ import '../server.js'
 function App() {
 
   const router = createBrowserRouter( createRoutesFromElements(
-          <Route path='/'element={<Front />} >
+          <Route path='/' element={<Front />} >
               <Route index element={<Home />} />
               <Route path='about' element={<About />} />
               <Route path='vans' element={<Vans />} loader={ vanLoader } />
-              <Route path='vans/:id' element={ <VanDetail />} />
+              <Route path='vans/:id' element={ <VanDetail />} loader={ detailLoader } />
               <Route path='host' element={ <HostLayout />} >
                 <Route index element={ <Dashboard />} />
                 <Route path='income' element={ <Income />} />
