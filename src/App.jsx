@@ -4,7 +4,7 @@ import HostVanCardDetailLayput from './layout/HostVanCardDetailLayout'
 
 
 import About from './pages/Vans/About'
-import Vans from './pages/Vans/Vans'
+import Vans , { loader as vanLoader } from './pages/Vans/Vans'
 import Home from './pages/Vans/Home'
 import VanDetail from './pages/Vans/VanDetail'
 
@@ -31,12 +31,12 @@ function App() {
           <Route path='/'element={<Front />} >
               <Route index element={<Home />} />
               <Route path='about' element={<About />} />
-              <Route path='vans' element={<Vans />} />
+              <Route path='vans' element={<Vans />} loader={ vanLoader } />
               <Route path='vans/:id' element={ <VanDetail />} />
               <Route path='host' element={ <HostLayout />} >
                 <Route index element={ <Dashboard />} />
                 <Route path='income' element={ <Income />} />
-                <Route path='vans' element={ <HostVans />} />
+                <Route path='vans' element={ <HostVans />}   />
                 <Route path='vans/:id' element={ <HostVanCardDetailLayput />} >
                   <Route index element={<HostVanDetail/>} />
                   <Route path='image' element={<HostVanImage />} />

@@ -1,7 +1,11 @@
 import React from "react";
 import { Link, useParams, useLocation } from 'react-router-dom'
-import useFetchData from "../../hooks/useFetchData";
+import getVansData from '../../hooks/getVansData'
 import DataNotFound from "../DataNotFound";
+
+export function loader(){
+    return getVansData()
+}
 
 export default function VanDetail(){
     const { id } = useParams()

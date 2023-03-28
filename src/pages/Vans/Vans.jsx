@@ -1,12 +1,18 @@
-import React, { useEffect , useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
-import useFetchData from "../../hooks/useFetchData";
+import React from "react";
+import { Link, useSearchParams , useLoaderData} from "react-router-dom";
+import getVansData from '../../hooks/getVansData'
 import DataNotFound from "../DataNotFound";
 
+export function loader ( ){
+   return getVansData('/api/vans')
+}
 
 export default function Vans ( ){
 
-    const {data : vans , loading , error }  = useFetchData( '/api/vans' )
+   // const {data : vans , loading , error }  = useFetchData( '/api/vans' )
+   let vans = useLoaderData()
+   console.log( ' fetxhd data ..')
+   let error = false
 
     if( error ){
         return(
@@ -18,8 +24,8 @@ export default function Vans ( ){
     
     let typeFilter = searchParams.get('type')
 
-
     const handleFilterChange = ( key , value ) => {
+        console.log( ' handle filter ')
         setSearchParams( prevParams => {
             if ( value === null ){
                 prevParams.delete( key )
@@ -29,6 +35,7 @@ export default function Vans ( ){
             return prevParams
         })
     } 
+    console.log( ' handle filtere out ...')
 
     function addTypeLinks ( typeArray  ){
         let typeList = typeArray.map( (val, index) => {
@@ -43,6 +50,7 @@ export default function Vans ( ){
     }
 
     const typeSet = new Set()
+
     vans.forEach( item => {
         typeSet.add( item.type ) 
     })
