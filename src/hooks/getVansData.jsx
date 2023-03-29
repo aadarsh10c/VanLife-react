@@ -3,7 +3,7 @@
   export default async function getVansData( url , id='' ){
         console.log( ' inside fetching data ...')
         let newURL = id =='' ? url : `${url}/${id}`
-
+        console.log( newURL )
         let res = await fetch(newURL)
 
         if( !res.ok ){

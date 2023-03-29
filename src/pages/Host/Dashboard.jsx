@@ -1,15 +1,15 @@
 import React from "react";
-import { Link } from 'react-router-dom'
+import { Link, useOutletContext } from 'react-router-dom'
 
 import starURL from '../../assets/Star_3.png'
 
 //context
-import { useHostVanData } from "../../provider/HostVanContext";
+//import { useHostVanData } from "../../provider/HostVanContext";
 
 import HostVanCard from "../../component/HostVanCard";
 
 export default function Dashboard(){
-    const hostVanData = useHostVanData()
+    const  hostVanData  = useOutletContext()
     const hostVanList = hostVanData.map( van => (
             <Link to={`/host/vans/${van.id}`} key={van.id} className='vandetail-Link'>
                 <HostVanCard van={van} />

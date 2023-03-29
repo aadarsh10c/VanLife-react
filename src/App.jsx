@@ -1,5 +1,5 @@
 import Front from './layout/Front'
-import HostLayout from './layout/HostLayout'
+import HostLayout , {loader as hostVanLoader }from './layout/HostLayout'
 import HostVanCardDetailLayput from './layout/HostVanCardDetailLayout'
 
 
@@ -19,7 +19,7 @@ import HostVanPrice from './pages/Host/HostVanPrice'
 
 import PageNotFound from './pages/PageNotFound'
 
-import { BrowserRouter , Routes , Route,
+import { Route,
 createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom'
 import '../server.js'
 
@@ -33,7 +33,7 @@ function App() {
               <Route path='about' element={<About />} />
               <Route path='vans' element={<Vans />} loader={ vanLoader } />
               <Route path='vans/:id' element={ <VanDetail />} loader={ detailLoader } />
-              <Route path='host' element={ <HostLayout />} >
+              <Route path='host' loader={hostVanLoader} element={ <HostLayout />} >
                 <Route index element={ <Dashboard />} />
                 <Route path='income' element={ <Income />} />
                 <Route path='vans' element={ <HostVans />}   />
