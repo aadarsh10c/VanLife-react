@@ -9,7 +9,7 @@ import starURL from '../../assets/Star_3.png'
 import HostVanCard from "../../component/HostVanCard";
 
 export default function Dashboard(){
-    const  hostVanData  = useOutletContext()
+    const hostVanData = useOutletContext()
     const hostVanList = hostVanData.map( van => (
             <Link to={`/host/vans/${van.id}`} key={van.id} className='vandetail-Link'>
                 <HostVanCard van={van} />
