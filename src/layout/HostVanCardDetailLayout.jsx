@@ -1,15 +1,18 @@
 import React from "react";
-import { NavLink, Link, useParams , Outlet} from 'react-router-dom'
+import { NavLink, Link, useParams , Outlet , useLoaderData} from 'react-router-dom'
+import getVansData from "../hooks/getVansData";
 
-import { useHostVanData } from "../provider/HostVanContext";
+// import { useHostVanData } from "../provider/HostVanContext";
 
+export function loader ( { params }){
+    const { id } = params
+    return getVansData('/api/host/vans', id)
+}
 
 export  default function HostVanCardDetailLayput(){
     const { id } = useParams()
 
-    const vans = useHostVanData(  )
-
-    const van = vans.filter( item => item.id == id )[0]
+    const [van] = useLoaderData()
 
     const activeStyle = {
         borderBottom: '3px solid black',
@@ -21,7 +24,6 @@ export  default function HostVanCardDetailLayput(){
     return( 
         <div className="hostVanDetail">
             <Link relative='path' to='..'> ← Back to all vans</Link>
-            { van ? (
                     <div className="vandetail">
                         <div className="display">
                             <img src={van.imageUrl} alt="Van Pic" className="display__img" />
@@ -36,11 +38,8 @@ export  default function HostVanCardDetailLayput(){
                             <NavLink className="Link" style={ ({ isActive }) => setStyle( isActive ) } to={`price`}>Pricing</NavLink>
                             <NavLink className="Link" style={ ({ isActive }) => setStyle( isActive ) } to={`image`}>Photos</NavLink>
                         </div>
-                        <Outlet context={{ van }} />
-                        
+                        <Outlet context={{ van }} />                      
                     </div>
-                    ) : <h1>Loading...</h1>}
-
         </div>
     )
 }

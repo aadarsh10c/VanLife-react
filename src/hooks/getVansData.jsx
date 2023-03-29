@@ -4,7 +4,7 @@
         console.log( ' inside fetching data ...')
         let newURL = id =='' ? url : `${url}/${id}`
         console.log( newURL )
-        let res = await fetch(newURL)
+        let res = await fetch( newURL )
 
         if( !res.ok ){
             throw{

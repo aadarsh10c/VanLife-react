@@ -13,7 +13,6 @@ export function loader () {
 }
 export default function HostLayout ( ){
     const vanData = useLoaderData()
-    console.log( vanData )
     return(
         <>
             <HostHeader />

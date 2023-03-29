@@ -13,7 +13,7 @@ export default function HostVanCard ( props ){
                         <p>${van.price}/day</p>
                     </div>
                 </div>
-                <a href="#" className="card__edit">Edit</a>
+                <p className="card__edit">Edit</p>
             </div>
         </div>
     )
