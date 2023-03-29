@@ -4,8 +4,13 @@ import HostHeader from "../component/HostHeader";
 
 import { Outlet } from 'react-router-dom'
 
+import getVansData from "../hooks/getVansData";
+
 import { HostVanProvider } from "../provider/HostVanContext";
 
+export function loader () {
+    return getVansData( 'api/host/vans' )
+}
 export default function HostLayout ( ){
     return(
         <HostVanProvider>
