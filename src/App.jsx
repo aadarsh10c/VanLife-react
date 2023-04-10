@@ -6,6 +6,7 @@ import HostVanCardDetailLayput , {loader as hostVanDetailLoader }from './layout/
 import About from './pages/Vans/About'
 import Vans , { loader as vanLoader } from './pages/Vans/Vans'
 import Home from './pages/Vans/Home'
+import LoginForm from './pages/LoginForm'
 import VanDetail , { loader as detailLoader }from './pages/Vans/VanDetail'
 
 import Dashboard from './pages/Host/Dashboard'
@@ -33,6 +34,7 @@ function App() {
               <Route path='about' element={<About />} />
               <Route path='vans' element={<Vans />} loader={ vanLoader } />
               <Route path='vans/:id' element={ <VanDetail />} loader={ detailLoader } />
+              <Route path='login' element={ <LoginForm />} />
               <Route path='host' loader={hostVanLoader} element={ <HostLayout />} >
                 <Route index element={ <Dashboard />} />
                 <Route path='income' element={ <Income />} />

@@ -537,3 +537,15 @@ body{
     box-shadow: 0 2px 3px rgba($color: black, $alpha: .5);
   }
 }
+
+.user{
+  margin-top: .4rem;
+  align-self: flex-end;
+  &__img{
+    width: 1.9rem;
+  }
+}
+
+.login{
+  background-color: #FFF7ED ;
+}
